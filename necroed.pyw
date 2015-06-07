@@ -36,7 +36,8 @@ textfield.focus_set()
 root.configure(background=colortheme.color_frame)
 
 def e_exit(event):
-	root.exit()
+	#root.exit()
+	sys.exit()
 	#print("Now exiting NecroEd")
 
 def e_new_files(event):
@@ -151,7 +152,11 @@ class editor_gui():
 	def __init__(self):
 
 		root.title("NecroEd")
-		root.wm_iconbitmap("Data/necroed.ico")
+		try:
+			root.wm_iconbitmap("Data/necroed.ico")
+		except:
+			pass
+		
 		menu_frame.pack(side=TOP, fill=X)
 
 		b_new_file = Button(master=menu_frame, font=colortheme.font_menu, text="New", borderwidth=0.5, fg=colortheme.color_button_fg, bg=colortheme.color_button_bg, command=f_new_files)
